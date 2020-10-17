@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace Rest_Api.Responses
+namespace ServiceLayer.Responses
 {
     public class BaseResponse
     {
-        public BaseResponse(bool _Success , string _SuccessFailMessage)
+        public BaseResponse(bool _Success, string _SuccessFailMessage)
         {
             this.Success = _Success;
             this.SuccessFailMessage = _SuccessFailMessage;
@@ -15,7 +14,5 @@ namespace Rest_Api.Responses
 
         public bool Success { get; set; }
         public string SuccessFailMessage { get; set; }
-
-
     }
 }
