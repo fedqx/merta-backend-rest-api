@@ -9,7 +9,7 @@ namespace DataAccessLayer.Abstract
 {
     public interface IWorksiteRepos : ICrudRepos<Worksite>
     {
-        Task<IEnumerable<Worksite>> GetWorksiteByCategoryStage(short IdData , short? IdData2);
+        Task<IEnumerable<Worksite>> GetByCategoryStageAsync(short IdData , short? IdData2);
         Task<Worksite> GetByIdAsync(short IdData);
         Task<IEnumerable<Worksite>> GetAllAsync();
     }

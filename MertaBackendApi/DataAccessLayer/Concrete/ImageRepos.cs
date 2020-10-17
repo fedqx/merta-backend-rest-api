@@ -16,6 +16,11 @@ namespace DataAccessLayer.Concrete
 
         }
 
+        public async Task CreateRangeAsync(IEnumerable<Image> ImagesData)
+        {
+            await Context.Images.AddRangeAsync(ImagesData);
+        }
+
         public async Task<IEnumerable<Image>> GetAllAsync()
         {
             return await Context.Images

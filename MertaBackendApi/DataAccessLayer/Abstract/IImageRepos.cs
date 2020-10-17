@@ -10,5 +10,6 @@ namespace DataAccessLayer.Abstract
     {
         public Task<IEnumerable<Image>> GetAllAsync();
         public Task<Image> GetByIdAsync(short IdData);
+        public Task CreateRangeAsync(IEnumerable<Image> ImagesData);
     }
 }

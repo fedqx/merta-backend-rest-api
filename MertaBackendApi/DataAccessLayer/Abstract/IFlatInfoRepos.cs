@@ -10,5 +10,6 @@ namespace DataAccessLayer.Abstract
     {
         public Task<IEnumerable<FlatInfo>> GetAllAsync();
         public Task<FlatInfo> GetByIdAsync(short IdData);
+        public Task CreateRangeAsync(IEnumerable<FlatInfo> FlatInfosData);
     }
 }

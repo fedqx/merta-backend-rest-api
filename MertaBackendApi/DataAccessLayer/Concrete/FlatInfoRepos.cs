@@ -16,6 +16,11 @@ namespace DataAccessLayer.Concrete
 
         }
 
+        public async Task CreateRangeAsync(IEnumerable<FlatInfo> FlatInfosData)
+        {
+            await Context.FlatInfos.AddRangeAsync(FlatInfosData);
+        }
+
         public async Task<IEnumerable<FlatInfo>> GetAllAsync()
         {
             return await Context.FlatInfos

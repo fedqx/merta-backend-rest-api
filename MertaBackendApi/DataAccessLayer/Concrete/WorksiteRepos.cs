@@ -37,7 +37,7 @@ namespace DataAccessLayer.Concrete
 
         }
 
-        public async Task<IEnumerable<Worksite>> GetWorksiteByCategoryStage(short IdData , short? IdData2)
+        public async Task<IEnumerable<Worksite>> GetByCategoryStageAsync(short IdData , short? IdData2)
         {
             if (IdData2 != null)
             {
