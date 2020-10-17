@@ -1,0 +1,115 @@
+﻿using Entities;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Security.Cryptography.X509Certificates;
+
+namespace DataAccessLayer
+{
+    public class PostgresContext : DbContext
+    {
+        public PostgresContext()
+        {
+
+        }
+        public PostgresContext(DbContextOptions<PostgresContext> opt) : base(opt)
+        {
+
+        }
+        public DbSet<Admin> Admins { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Worksite> Worksites { get; set; }
+        public DbSet<Image> Images { get; set; }
+        public DbSet<FlatInfo> FlatInfos { get; set; }
+        public DbSet<Campaign> Campaigns { get; set; }
+        public DbSet<Stage> Stages { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            
+
+            modelBuilder 
+                .Entity<Worksite>()
+                .HasOne(p => p.WorksiteCategory)
+                .WithMany(p => p.CategoryWorksites)
+                .HasForeignKey(p => p.WorksiteCategory_Id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder
+                .Entity<Worksite>()
+                .HasOne(p => p.WorksiteStage)
+                .WithMany(p => p.StageWorksites)
+                .HasForeignKey(p => p.WorksiteStage_Id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder
+                .Entity<Image>()
+                .HasOne(p => p.ImageWorksite)
+                .WithMany(p => p.WorksiteImages)
+                .HasForeignKey(p => p.ImageWorksite_Id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder
+                .Entity<FlatInfo>()
+                .HasOne(p => p.FlatInfoWorksite)
+                .WithMany(p => p.WorksiteFlatInfos)
+                .HasForeignKey(p => p.FlatInfoWorksite_Id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder
+                .Entity<Campaign>()
+                .HasOne(p => p.CampaignWorksite)
+                .WithMany(p => p.WorksiteCampaigns)
+                .HasForeignKey(p => p.CampaignWorksite_Id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+
+            modelBuilder.HasSequence<short>("sq_admin")
+                .IncrementsBy(1);
+            modelBuilder.HasSequence<short>("sq_campaign")
+                .IncrementsBy(1);
+            modelBuilder.HasSequence<short>("sq_category")
+                .IncrementsBy(1);
+            modelBuilder.HasSequence<short>("sq_flatinfo")
+                .IncrementsBy(1);
+            modelBuilder.HasSequence<short>("sq_image")
+                .IncrementsBy(1);
+            modelBuilder.HasSequence<short>("sq_stage")
+                .IncrementsBy(1);
+            modelBuilder.HasSequence<short>("sq_worksite")
+                .IncrementsBy(1);
+
+            modelBuilder.Entity<Admin>()
+                .Property(p => p.Admin_Id)
+                .HasDefaultValueSql("nextval(\"'sq_admin'\")");
+            modelBuilder.Entity<Campaign>()
+                .Property(p => p.Campaign_Id)
+                .HasDefaultValueSql("nextval(\"'sq_campaign'\")");
+            modelBuilder.Entity<Category>()
+                .Property(p => p.Category_Id)
+                .HasDefaultValueSql("nextval(\"'sq_category'\")");
+            modelBuilder.Entity<FlatInfo>()
+                .Property(p => p.FlatInfo_Id)
+                .HasDefaultValueSql("nextval(\"'sq_flatinfo'\")");
+            modelBuilder.Entity<Image>()
+                .Property(p => p.Image_Id)
+                .HasDefaultValueSql("nextval(\"'sq_image'\")");
+            modelBuilder.Entity<Stage>()
+                .Property(p => p.Stage_Id)
+                .HasDefaultValueSql("nextval(\"'sq_state'\")");
+            modelBuilder.Entity<Worksite>()
+                .Property(p => p.Worksite_Id)
+                .HasDefaultValueSql("nextval(\"'sq_worksite'\")");
+
+
+
+
+
+
+
+
+
+
+
+        }
+    }
+}

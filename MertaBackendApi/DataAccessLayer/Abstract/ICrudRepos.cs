@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DataAccessLayer.Abstract
+{
+    public interface ICrudRepos<TEntity>
+    {
+        Task CreateAsync(TEntity Entity);
+
+        Task DeleteAsync(short IdData);
+
+        void Update(TEntity Entity);
+    }
+}
