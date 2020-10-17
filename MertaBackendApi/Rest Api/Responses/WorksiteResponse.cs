@@ -19,9 +19,9 @@ namespace Rest_Api.Responses
         {
 
         }
-        public WorksiteResponse(Worksite _WR_Worksite) : this(false , "HATA") //Failed
-        {
+        //public WorksiteResponse(Worksite _WR_Worksite) : this(false , "HATA") //Failed
+        //{
 
-        }
+        //}
     }
 }

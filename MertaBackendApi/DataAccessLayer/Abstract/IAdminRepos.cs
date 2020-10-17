@@ -6,7 +6,7 @@ using Entities;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IAdminRepos
+    public interface IAdminRepos : ICrudRepos<Admin>
     {
         public Task<IEnumerable<Admin>> GetAllAsync();
         public Task<Admin> GetByIdAsync(short IdData);

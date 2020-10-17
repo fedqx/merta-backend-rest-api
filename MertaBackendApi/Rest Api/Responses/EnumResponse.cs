@@ -7,8 +7,5 @@ namespace Rest_Api.Responses
 {
     public enum EnumResponse
     {
-        Hata, 
-        İşlem Gerçekleştirilemedi,
-
     }
 }

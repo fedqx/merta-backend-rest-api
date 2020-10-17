@@ -6,7 +6,7 @@ using Entities;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface ICampaignRepos
+    public interface ICampaignRepos : ICrudRepos<Campaign>
     {
         public Task<IEnumerable<Campaign>> GetAllAsync();
         public Task<Campaign> GetByIdAsync(short IdData);

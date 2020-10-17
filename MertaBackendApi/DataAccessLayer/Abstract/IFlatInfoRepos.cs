@@ -6,7 +6,7 @@ using Entities;
 
 namespace DataAccessLayer.Abstract
 {
-    interface IFlatInfoRepos
+    interface IFlatInfoRepos : ICrudRepos<FlatInfo>
     {
         public Task<IEnumerable<FlatInfo>> GetAllAsync();
         public Task<FlatInfo> GetByIdAsync(short IdData);

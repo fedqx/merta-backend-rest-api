@@ -6,7 +6,7 @@ using Entities;
 
 namespace DataAccessLayer.Abstract
 {
-    interface ICategoryRepos
+    interface ICategoryRepos : ICrudRepos<Category>
     {
         public Task<IEnumerable<Category>> GetAllAsync();
         public Task<Category> GetByIdAsync(short IdData);
