@@ -19,21 +19,13 @@ namespace DataAccessLayer.Concrete
         public async Task CreateRangeAsync(IEnumerable<FlatInfo> FlatInfosData)
         {
             await Context.FlatInfos.AddRangeAsync(FlatInfosData);
-        }
+        } 
 
-        public async Task<IEnumerable<FlatInfo>> GetAllAsync()
+        public async Task<IEnumerable<FlatInfo>> GetAllAsync(short IdData)
         {
             return await Context.FlatInfos
-                .Include(p => p.FlatInfoWorksite)
+                .Where(p => p.FlatInfoWorksite_Id == IdData)
                 .ToListAsync();
-        }
-
-        public async Task<FlatInfo> GetByIdAsync(short IdData)
-        {
-            return await Context.FlatInfos
-                .Where(p => p.FlatInfo_Id == IdData)
-                .Include(p => p.FlatInfoWorksite)
-                .FirstOrDefaultAsync();
         }
     }
 }

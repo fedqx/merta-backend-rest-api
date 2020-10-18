@@ -8,8 +8,7 @@ namespace DataAccessLayer.Abstract
 {
     interface IFlatInfoRepos : ICrudRepos<FlatInfo>
     {
-        public Task<IEnumerable<FlatInfo>> GetAllAsync();
-        public Task<FlatInfo> GetByIdAsync(short IdData);
+        public Task<IEnumerable<FlatInfo>> GetAllAsync(short IdData);
         public Task CreateRangeAsync(IEnumerable<FlatInfo> FlatInfosData);
     }
 }

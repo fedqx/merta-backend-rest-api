@@ -26,10 +26,5 @@ namespace DataAccessLayer.Abstract
             var Entity = await Context.Set<TEntity>().FindAsync(IdData);
             Context.Set<TEntity>().Remove(Entity);
         }
-
-        public void Update(TEntity Entity)
-        {
-
-        }
     }
 }

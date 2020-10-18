@@ -8,7 +8,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IAdminRepos : ICrudRepos<Admin>
     {
-        public Task<IEnumerable<Admin>> GetAllAsync();
         public Task<Admin> GetByIdAsync(short IdData);
     }
 }

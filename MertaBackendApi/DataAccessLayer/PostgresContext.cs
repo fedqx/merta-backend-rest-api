@@ -100,6 +100,6 @@ namespace DataAccessLayer
                 .Property(p => p.Worksite_Id)
                 .HasDefaultValueSql("nextval(\"'sq_worksite'\")");
 
-        }
+        }  
     }
 }

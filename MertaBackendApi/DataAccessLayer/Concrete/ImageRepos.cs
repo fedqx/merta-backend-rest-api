@@ -21,10 +21,11 @@ namespace DataAccessLayer.Concrete
             await Context.Images.AddRangeAsync(ImagesData);
         }
 
-        public async Task<IEnumerable<Image>> GetAllAsync()
+        public async Task<IEnumerable<Image>> GetAllAsync(short IdData)
         {
             return await Context.Images
                 .Include(p => p.ImageWorksite)
+                .ThenInclude(p => p.Worksite_Id == IdData)
                 .ToListAsync();
         }
 

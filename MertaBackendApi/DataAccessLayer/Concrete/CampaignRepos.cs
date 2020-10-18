@@ -29,7 +29,7 @@ namespace DataAccessLayer.Concrete
                 .Where(p => p.Campaign_Id == IdData)
                 .Include(p => p.CampaignWorksite)
                 .FirstOrDefaultAsync();
-        }
+        } 
 
     }
 }

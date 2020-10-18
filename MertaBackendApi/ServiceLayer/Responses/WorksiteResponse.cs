@@ -28,7 +28,7 @@ namespace ServiceLayer.Responses
         public IEnumerable<Worksite> WLR_Worksite { get; set; }
         public WorksiteListResponse(bool _Success, string _SuccessFailMessage, IEnumerable<Worksite> _WLR_Worksite) : base(_Success, _SuccessFailMessage)
         {
-
+            this.WLR_Worksite = _WLR_Worksite;
         }
         public WorksiteListResponse(IEnumerable<Worksite> _WLR_Worksite) : this(true, string.Empty, _WLR_Worksite)
         {

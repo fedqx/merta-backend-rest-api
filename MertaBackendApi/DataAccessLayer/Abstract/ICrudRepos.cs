@@ -11,7 +11,5 @@ namespace DataAccessLayer.Abstract
         Task CreateAsync(TEntity Entity);
 
         Task DeleteAsync(short IdData);
-
-        void Update(TEntity Entity);
     }
 }

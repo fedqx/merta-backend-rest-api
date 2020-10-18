@@ -8,5 +8,6 @@ namespace ServiceLayer.Concrete
 {
     public class WorksiteService
     {
+
     }
 }
