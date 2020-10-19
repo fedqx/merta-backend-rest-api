@@ -20,6 +20,11 @@ namespace DataAccessLayer.Concrete
         {
             return await Context.Categories
                 .Include(p => p.CategoryWorksites)
+                .ThenInclude(p => p.WorksiteImages)
+                .Include(p => p.CategoryWorksites)
+                .ThenInclude(p => p.WorksiteFlatInfos)
+                .Include(p => p.CategoryWorksites)
+                .ThenInclude(p => p.WorksiteStage)
                 .ToListAsync();
         }
 
@@ -28,6 +33,11 @@ namespace DataAccessLayer.Concrete
             return await Context.Categories
                 .Where(p => p.Category_Id == IdData)
                 .Include(p => p.CategoryWorksites)
+                .ThenInclude(p => p.WorksiteImages)
+                .Include(p => p.CategoryWorksites)
+                .ThenInclude(p => p.WorksiteFlatInfos)
+                .Include(p =>  p.CategoryWorksites)
+                .ThenInclude(p => p.WorksiteStage)
                 .FirstOrDefaultAsync();
         }
 

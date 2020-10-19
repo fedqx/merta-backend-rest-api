@@ -25,7 +25,16 @@ namespace DataAccessLayer.Concrete
         {
             return await Context.FlatInfos
                 .Where(p => p.FlatInfoWorksite_Id == IdData)
+                .Include(p => p.FlatInfoWorksite)
                 .ToListAsync();
+        }
+
+        public async Task<FlatInfo> GetById(short IdData)
+        {
+            return await Context.FlatInfos
+                .Where(p => p.FlatInfoWorksite_Id == IdData)
+                .Include(p => p.FlatInfoWorksite)
+                .FirstOrDefaultAsync();
         }
     }
 }

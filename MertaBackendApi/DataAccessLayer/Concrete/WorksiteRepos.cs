@@ -16,6 +16,7 @@ namespace DataAccessLayer.Concrete
 
         }
 
+
         public async Task<IEnumerable<Worksite>> GetAllAsync()
         {
             return await Context.Worksites

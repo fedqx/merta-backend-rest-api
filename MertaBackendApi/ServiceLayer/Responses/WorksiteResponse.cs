@@ -9,7 +9,7 @@ namespace ServiceLayer.Responses
     {
         public Worksite WR_Worksite { get; set; }
 
-        public WorksiteResponse(bool _Success, string _SuccessFailMessage, Worksite _WR_Worksite) : base(_Success, _SuccessFailMessage)
+        private WorksiteResponse(bool _Success, string _SuccessFailMessage, Worksite _WR_Worksite) : base(_Success, _SuccessFailMessage)
         {
             this.WR_Worksite = _WR_Worksite;
         }

@@ -8,18 +8,18 @@ namespace ServiceLayer.Responses
     public class CategoryResponse : BaseResponse
     {
         public Category CR_Category{ get; set; }
-        public CategoryResponse(bool _Success , string _SuccessFailMessage , Category _CR_Category) : base(_Success , _SuccessFailMessage)
+        private CategoryResponse(bool _Success , string _SuccessFailMessage , Category _CR_Category) : base(_Success , _SuccessFailMessage)
         {
             this.CR_Category = _CR_Category;
         }
 
         public CategoryResponse(Category CR_Category) : this(true , string.Empty , CR_Category)
         {
-
+            
         }
         public CategoryResponse(string _SuccessFailMessage) : this(false , _SuccessFailMessage , null)
         {
-
+            
         }
     }
 
@@ -34,7 +34,7 @@ namespace ServiceLayer.Responses
 
         public CategoryListResponse(IEnumerable<Category> _CLR_Category) : this(true , string.Empty , _CLR_Category)
         {
-
+            
         }
 
         public CategoryListResponse(string _SuccessFailMessage) : this(false , _SuccessFailMessage , null)

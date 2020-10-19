@@ -8,7 +8,7 @@ namespace ServiceLayer.Responses
     public class ImageResponse : BaseResponse
     {
         public Image IR_Image { get; set; }
-        public ImageResponse(bool _Success , string _SuccessFailMessage , Image _IR_Image) : base(_Success , _SuccessFailMessage)
+        private ImageResponse(bool _Success , string _SuccessFailMessage , Image _IR_Image) : base(_Success , _SuccessFailMessage)
         {
             this.IR_Image = _IR_Image;
         }

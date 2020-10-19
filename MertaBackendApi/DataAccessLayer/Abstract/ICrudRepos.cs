@@ -9,7 +9,7 @@ namespace DataAccessLayer.Abstract
     public interface ICrudRepos<TEntity>
     {
         Task CreateAsync(TEntity Entity);
-
         Task DeleteAsync(short IdData);
+        Task UpdateAsync(short IdData, TEntity Entity);
     }
 }

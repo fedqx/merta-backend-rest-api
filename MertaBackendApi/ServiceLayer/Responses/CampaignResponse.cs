@@ -9,19 +9,19 @@ namespace ServiceLayer.Responses
     {
         public Campaign  CR_Campaign { get; set; }
 
-        public CampaignResponse(bool _Success , string _SuccessFailMessage , Campaign _CR_Campaign)  : base(_Success , _SuccessFailMessage)
+        private CampaignResponse(bool _Success , string _SuccessFailMessage , Campaign _CR_Campaign)  : base(_Success , _SuccessFailMessage)
         {
             this.CR_Campaign = _CR_Campaign;
         }
 
         public CampaignResponse(Campaign _CR_Campaign) : this(true , string.Empty , _CR_Campaign)
         {
-
+            
         }
 
         public CampaignResponse(string _SuccessFailMessage) : this(false , _SuccessFailMessage , null)
         {
-
+            
         }
     }
 
@@ -35,12 +35,12 @@ namespace ServiceLayer.Responses
 
         public CampaignListResponse(IEnumerable<Campaign> _CLR_Campaign) : this(true , string.Empty , _CLR_Campaign)
         {
-
+            
         }
 
         public CampaignListResponse(string _SuccessFailMessage) : this(false , _SuccessFailMessage , null)
         {
-
+            
         }
     }
 }
