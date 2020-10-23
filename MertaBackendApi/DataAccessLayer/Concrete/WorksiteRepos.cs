@@ -13,9 +13,8 @@ namespace DataAccessLayer.Concrete
     {
         public WorksiteRepos(PostgresContext _Context) : base(_Context)
         {
-
+            
         }
-
 
         public async Task<IEnumerable<Worksite>> GetAllAsync()
         {
@@ -28,14 +27,12 @@ namespace DataAccessLayer.Concrete
 
         public async Task<Worksite> GetByIdAsync(short IdData)
         {
-
             return await Context.Worksites
                 .Where(p => p.Worksite_Id == IdData)
                 .Include(p => p.WorksiteCampaigns)
                 .Include(p => p.WorksiteImages)
                 .Include(p => p.WorksiteFlatInfos)
                 .FirstOrDefaultAsync();
-
         }
 
         public async Task<IEnumerable<Worksite>> GetByCategoryStageAsync(short IdData , short? IdData2)

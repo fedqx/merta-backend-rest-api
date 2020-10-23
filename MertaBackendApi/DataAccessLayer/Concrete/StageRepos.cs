@@ -19,7 +19,6 @@ namespace DataAccessLayer.Concrete
         public async Task<IEnumerable<Stage>> GetAllAsync()
         {
             return await Context.Stages
-                .Include(e => e.StageWorksites)
                 .ToListAsync();
         }
 
@@ -27,7 +26,6 @@ namespace DataAccessLayer.Concrete
         {
             return await Context.Stages
                 .Where(e => e.Stage_Id == IdData)
-                .Include(e => e.StageWorksites)
                 .FirstOrDefaultAsync();
 
         }

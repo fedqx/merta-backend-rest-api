@@ -25,7 +25,7 @@ namespace DataAccessLayer.Concrete
         {
             return await Context.Images
                 .Include(p => p.ImageWorksite)
-                .ThenInclude(p => p.Worksite_Id == IdData)
+                    .ThenInclude(p => p.Worksite_Id == IdData)
                 .ToListAsync();
         }
 

@@ -17,21 +17,24 @@ namespace ServiceLayer.Concrete
         private readonly IWorksiteRepos WorksiteRepos;
         private readonly IImageRepos ImageRepos;
         private readonly IFlatInfoRepos FlatInfoRepos;
+        private readonly IRawImageRepos RawImageRepos;
         private readonly IUnitOfWork UnitOfWork;
-        public WorksiteService(IWorksiteRepos _WorksiteRepos ,IImageRepos _ImageRepos, IFlatInfoRepos _IFlatInfoRepos, IUnitOfWork _UnitOfWork)
+        public WorksiteService(IWorksiteRepos _WorksiteRepos ,IImageRepos _ImageRepos, IFlatInfoRepos _IFlatInfoRepos, IUnitOfWork _UnitOfWork , IRawImageRepos _RawImageRepos)
         {
+            this.RawImageRepos = _RawImageRepos;
             this.WorksiteRepos = _WorksiteRepos;
             this.ImageRepos = _ImageRepos;
             this.FlatInfoRepos = _IFlatInfoRepos;
             this.UnitOfWork = _UnitOfWork;
         }
 
-        public async Task<WorksiteResponse> CreateWorksiteAsync(Worksite WorksiteData, IEnumerable<Image> ImagesData, IEnumerable<FlatInfo> FlatInfosData)
+        public async Task<WorksiteResponse> CreateWorksiteAsync(Worksite WorksiteData, IEnumerable<Image> ImagesData, IEnumerable<FlatInfo> FlatInfosData , IEnumerable<RawImage> RawImagesData)
         {
             try
             {
                 await WorksiteRepos.CreateAsync(WorksiteData);
                 await ImageRepos.CreateRangeAsync(ImagesData);
+                await RawImageRepos.CreateRangeAsync(RawImagesData);
                 await FlatInfoRepos.CreateRangeAsync(FlatInfosData);
                 await UnitOfWork.CompleteAsync();
                 return new WorksiteResponse(WorksiteData);

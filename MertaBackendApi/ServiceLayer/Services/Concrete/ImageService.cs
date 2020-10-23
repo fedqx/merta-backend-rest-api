@@ -15,11 +15,9 @@ namespace ServiceLayer.Concrete
     {
         private readonly IUnitOfWork UnitOfWork;
         private readonly IImageRepos ImageRepos;
-        private readonly IWorksiteRepos WorksiteRepos;
-
-        public ImageService(IWorksiteRepos _WorksiteRepos, IImageRepos _ImageRepos, IUnitOfWork _UnitOfWork)
+ 
+        public ImageService(IImageRepos _ImageRepos, IUnitOfWork _UnitOfWork)
         {
-            this.WorksiteRepos = _WorksiteRepos;
             this.ImageRepos = _ImageRepos;
             this.UnitOfWork = _UnitOfWork;
         }
@@ -34,8 +32,7 @@ namespace ServiceLayer.Concrete
             }
             catch (Exception Ex)
             {
-                return new ImageResponse($"Resim Yüklenirken Bir Hata Oluştu : {Ex.Message}");
-                
+                return new ImageResponse($"Resim Yüklenirken Bir Hata Oluştu : {Ex.Message}");    
             }
         }
 

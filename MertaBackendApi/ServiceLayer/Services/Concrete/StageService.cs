@@ -4,9 +4,7 @@ using Entities;
 using ServiceLayer.Abstract;
 using ServiceLayer.Responses;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ServiceLayer.Concrete

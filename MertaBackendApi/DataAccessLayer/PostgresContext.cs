@@ -62,6 +62,12 @@ namespace DataAccessLayer
                 .HasForeignKey(p => p.CampaignWorksite_Id)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder
+                .Entity<Campaign>()
+                .Property(p => p.Campaign_Stage)
+                .HasDefaultValue<bool>(true);
+                
+
 
             modelBuilder.HasSequence<short>("sq_admin")
                 .IncrementsBy(1);
