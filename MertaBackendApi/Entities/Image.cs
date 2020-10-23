@@ -11,6 +11,7 @@ namespace Entities
         public short Image_Id { get; set; }
         public string Image_Url { get; set; }
         public string ImageRaw_Url { get; set; }
+       
         public short ImageWorksite_Id { get; set; }
         public Worksite ImageWorksite { get; set; }
     }

@@ -7,6 +7,7 @@ namespace ServiceLayer.AutoMapper.Resources
 {
     class CampaignResource
     {
+
     }
     
     public class CampaignCreateDto

@@ -9,7 +9,7 @@ namespace ServiceLayer.AutoMapper.Resources
     {
     }
 
-    public class FlaInfoCreateDto
+    public class FlatInfoCreateDto
     {
         public string FlatInfo_Apartment { get; set; }
         public string FlatInfo_Room { get; set; }
