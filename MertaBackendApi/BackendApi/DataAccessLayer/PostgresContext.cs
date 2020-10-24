@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Security.Cryptography.X509Certificates;
 
-namespace DataAccessLayer
+namespace BackendApi.DataAccessLayer
 {
     public class PostgresContext : DbContext
     {

@@ -1,13 +1,13 @@
-﻿using DataAccessLayer.Abstract;
-using DataAccessLayer.UnitOfWork;
+﻿using BackendApi.DataAccessLayer.Abstract;
+using BackendApi.DataAccessLayer.UnitOfWork;
 using Entities;
-using ServiceLayer.Abstract;
-using ServiceLayer.Responses;
+using BackendApi.Services.Abstract;
+using BackendApi.Services.Responses;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ServiceLayer.Concrete
+namespace BackendApi.Services.Concrete
 {
     public sealed class StageService : IStageService
     {

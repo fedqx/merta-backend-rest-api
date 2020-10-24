@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Entities;
 
-namespace ServiceLayer.Responses
+namespace BackendApi.Services.Responses
 {
     public class WorksiteResponse : BaseResponse
     {

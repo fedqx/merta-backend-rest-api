@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using AutoMapper;
-using ServiceLayer.AutoMapper.Resources;
+using BackendApi.AutoMapper.Resources;
 
-namespace ServiceLayer.AutoMapper.Profiles
+namespace BackendApi.AutoMapper.Profiles
 {
     public class AllProfiles 
     {

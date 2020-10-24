@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ServiceLayer.AutoMapper.Resources
+namespace BackendApi.AutoMapper.Resources
 {
     class WorksiteResource
     {

@@ -1,11 +1,11 @@
 ﻿using Entities;
-using ServiceLayer.Responses;
+using BackendApi.Services.Responses;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceLayer.Abstract
+namespace BackendApi.Services.Abstract
 {
     public interface IImageService
     {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer.Abstract
+namespace BackendApi.DataAccessLayer.Abstract
 {
     public interface IStageRepos : ICrudRepos<Stage>
     {

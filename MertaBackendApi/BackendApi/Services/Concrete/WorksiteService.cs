@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 using Entities;
-using DataAccessLayer;
-using ServiceLayer.Abstract;
+using BackendApi.DataAccessLayer;
+using BackendApi.Services.Abstract;
 using System.Threading.Tasks;
-using ServiceLayer.Responses;
-using DataAccessLayer.Abstract;
-using DataAccessLayer.UnitOfWork;
+using BackendApi.Services.Responses;
+using BackendApi.DataAccessLayer.Abstract;
+using BackendApi.DataAccessLayer.UnitOfWork;
 using System.Linq;
 
-namespace ServiceLayer.Concrete
+namespace BackendApi.Services.Concrete
 {
     public class WorksiteService : IWorksiteService
     {

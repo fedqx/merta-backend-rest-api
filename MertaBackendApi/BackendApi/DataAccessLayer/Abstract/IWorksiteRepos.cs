@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities;
 
-namespace DataAccessLayer.Abstract
+namespace BackendApi.DataAccessLayer.Abstract
 {
     public interface IWorksiteRepos : ICrudRepos<Worksite>
     {

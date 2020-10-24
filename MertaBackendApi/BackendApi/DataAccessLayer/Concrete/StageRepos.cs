@@ -1,4 +1,4 @@
-﻿using DataAccessLayer.Abstract;
+﻿using BackendApi.DataAccessLayer.Abstract;
 using Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer.Concrete
+namespace BackendApi.DataAccessLayer.Concrete
 {
     public sealed class StageRepos : CrudGenericRepos<Stage , PostgresContext> , IStageRepos
     {

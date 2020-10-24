@@ -1,16 +1,16 @@
-﻿using DataAccessLayer.Abstract;
-using DataAccessLayer.Concrete;
-using DataAccessLayer.UnitOfWork;
+﻿using BackendApi.DataAccessLayer.Abstract;
+using BackendApi.DataAccessLayer.Concrete;
+using BackendApi.DataAccessLayer.UnitOfWork;
 using Entities;
-using ServiceLayer.Abstract;
-using ServiceLayer.Responses;
+using BackendApi.Services.Abstract;
+using BackendApi.Services.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceLayer.Concrete
+namespace BackendApi.Services.Concrete
 {
     public sealed class CampaignService : ICampaignService
     {

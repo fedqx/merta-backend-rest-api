@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ServiceLayer.Responses
+namespace BackendApi.Services.Responses
 {
     public class AdminResponse
     {

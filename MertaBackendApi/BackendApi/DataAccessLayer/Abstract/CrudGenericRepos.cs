@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer.Abstract
+namespace BackendApi.DataAccessLayer.Abstract
 {
     public class CrudGenericRepos<TEntity , TContext> : ICrudRepos<TEntity> 
         where TEntity : class 

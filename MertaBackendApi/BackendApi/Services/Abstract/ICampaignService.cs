@@ -1,12 +1,12 @@
-﻿using DataAccessLayer.Concrete;
+﻿using BackendApi.DataAccessLayer.Concrete;
 using Entities;
-using ServiceLayer.Responses;
+using BackendApi.Services.Responses;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceLayer.Abstract
+namespace BackendApi.Services.Abstract
 {
     interface ICampaignService
     {

@@ -11,9 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using DataAccessLayer;
+using BackendApi.DataAccessLayer;
 
-namespace Rest_Api
+namespace BackendApi
 {
     public class Startup
     {

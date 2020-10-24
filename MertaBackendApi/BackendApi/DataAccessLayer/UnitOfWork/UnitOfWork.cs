@@ -1,10 +1,10 @@
-﻿using DataAccessLayer.Concrete;
+﻿using BackendApi.DataAccessLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer.UnitOfWork
+namespace BackendApi.DataAccessLayer.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {

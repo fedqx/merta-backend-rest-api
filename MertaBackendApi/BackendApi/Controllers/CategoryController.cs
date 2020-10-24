@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ServiceLayer.Abstract;
+using BackendApi.Services.Abstract;
 using AutoMapper;
 
-namespace Rest_Api.Controllers
+namespace BackendApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

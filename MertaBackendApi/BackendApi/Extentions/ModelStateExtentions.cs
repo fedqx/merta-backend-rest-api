@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Rest_Api.Extentions
+namespace BackendApi.Extentions
 {
     public static class ModelStateExtentions
     {
