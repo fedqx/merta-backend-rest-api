@@ -10,8 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using DataAccessLayer;
 using Microsoft.EntityFrameworkCore;
+using DataAccessLayer;
 
 namespace Rest_Api
 {
@@ -28,7 +28,7 @@ namespace Rest_Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<PostgresContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("NpgSqlConnection")));
+            services.AddDbContext<PostgresContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("NpgSql")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

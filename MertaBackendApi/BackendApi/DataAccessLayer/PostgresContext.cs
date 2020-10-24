@@ -7,15 +7,15 @@ namespace DataAccessLayer
 {
     public class PostgresContext : DbContext
     {
-        public PostgresContext()
-        {
-
-        }
         public PostgresContext(DbContextOptions<PostgresContext> opt) : base(opt)
         {
 
         }
-        public DbSet<Admin> Admins { get; set; }
+        public PostgresContext()
+        {
+
+        }
+        //public DbSet<Admin> Admins { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Worksite> Worksites { get; set; }
         public DbSet<Image> Images { get; set; }
@@ -69,8 +69,8 @@ namespace DataAccessLayer
                 
 
 
-            modelBuilder.HasSequence<short>("sq_admin")
-                .IncrementsBy(1);
+            //modelBuilder.HasSequence<short>("sq_admin")
+            //    .IncrementsBy(1);
             modelBuilder.HasSequence<short>("sq_campaign")
                 .IncrementsBy(1);
             modelBuilder.HasSequence<short>("sq_category")
@@ -84,9 +84,9 @@ namespace DataAccessLayer
             modelBuilder.HasSequence<short>("sq_worksite")
                 .IncrementsBy(1);
 
-            modelBuilder.Entity<Admin>()
-                .Property(p => p.Admin_Id)
-                .HasDefaultValueSql("nextval(\"'sq_admin'\")");
+            //modelBuilder.Entity<Admin>()
+            //    .Property(p => p.Admin_Id)
+            //    .HasDefaultValueSql("nextval(\"'sq_admin'\")");
             modelBuilder.Entity<Campaign>()
                 .Property(p => p.Campaign_Id)
                 .HasDefaultValueSql("nextval(\"'sq_campaign'\")");

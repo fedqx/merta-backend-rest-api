@@ -9,6 +9,7 @@ namespace ServiceLayer.AutoMapper.Profiles
 {
     public class AllProfiles 
     {
+
     }
 
     public class CategoryProfile : Profile
