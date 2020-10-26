@@ -26,9 +26,45 @@ namespace BackendApi.DataAccessLayer
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            //modelBuilder.HasSequence<short>("sq_admin")
+            //    .IncrementsBy(1);
+            modelBuilder.HasSequence<short>("sq_campaign")
+                .IncrementsBy(1);
+            modelBuilder.HasSequence<short>("sq_category")
+                .IncrementsBy(1);
+            modelBuilder.HasSequence<short>("sq_flatinfo")
+                .IncrementsBy(1);
+            modelBuilder.HasSequence<short>("sq_image")
+                .IncrementsBy(1);
+            modelBuilder.HasSequence<short>("sq_stage")
+                .IncrementsBy(1);
+            modelBuilder.HasSequence<short>("sq_worksite")
+                .IncrementsBy(1);
 
-            modelBuilder 
+            //modelBuilder.Entity<Admin>()
+            //    .Property(p => p.Admin_Id)
+            //    .HasDefaultValueSql("nextval(\"'sq_admin'\")");
+            modelBuilder.Entity<Campaign>()
+                .Property(p => p.Campaign_Id)
+                .HasDefaultValueSql("nextval('\"sq_campaign\"')");
+            modelBuilder.Entity<Category>()
+                .Property(p => p.Category_Id)
+                .HasDefaultValueSql("nextval('\"sq_category\"')");
+            modelBuilder.Entity<FlatInfo>()
+                .Property(p => p.FlatInfo_Id)
+                .HasDefaultValueSql("nextval('\"sq_flatinfo\"')");
+            modelBuilder.Entity<Image>()
+                .Property(p => p.Image_Id)
+                .HasDefaultValueSql("nextval('\"sq_image\"')");
+            modelBuilder.Entity<Stage>()
+                .Property(p => p.Stage_Id)
+                .HasDefaultValueSql("nextval('\"sq_state\"')");
+            modelBuilder.Entity<Worksite>()
+                .Property(p => p.Worksite_Id)
+                .HasDefaultValueSql("nextval('\"sq_worksite\"')");
+
+
+            modelBuilder
                 .Entity<Worksite>()
                 .HasOne(p => p.WorksiteCategory)
                 .WithMany(p => p.CategoryWorksites)
@@ -70,42 +106,8 @@ namespace BackendApi.DataAccessLayer
                 
 
 
-            //modelBuilder.HasSequence<short>("sq_admin")
-            //    .IncrementsBy(1);
-            modelBuilder.HasSequence<short>("sq_campaign")
-                .IncrementsBy(1);
-            modelBuilder.HasSequence<short>("sq_category")
-                .IncrementsBy(1);
-            modelBuilder.HasSequence<short>("sq_flatinfo")
-                .IncrementsBy(1);
-            modelBuilder.HasSequence<short>("sq_image")
-                .IncrementsBy(1);
-            modelBuilder.HasSequence<short>("sq_stage")
-                .IncrementsBy(1);
-            modelBuilder.HasSequence<short>("sq_worksite")
-                .IncrementsBy(1);
 
-            //modelBuilder.Entity<Admin>()
-            //    .Property(p => p.Admin_Id)
-            //    .HasDefaultValueSql("nextval(\"'sq_admin'\")");
-            modelBuilder.Entity<Campaign>()
-                .Property(p => p.Campaign_Id)
-                .HasDefaultValueSql("nextval(\"'sq_campaign'\")");
-            modelBuilder.Entity<Category>()
-                .Property(p => p.Category_Id)
-                .HasDefaultValueSql("nextval(\"'sq_category'\")");
-            modelBuilder.Entity<FlatInfo>()
-                .Property(p => p.FlatInfo_Id)
-                .HasDefaultValueSql("nextval(\"'sq_flatinfo'\")");
-            modelBuilder.Entity<Image>()
-                .Property(p => p.Image_Id)
-                .HasDefaultValueSql("nextval(\"'sq_image'\")");
-            modelBuilder.Entity<Stage>()
-                .Property(p => p.Stage_Id)
-                .HasDefaultValueSql("nextval(\"'sq_state'\")");
-            modelBuilder.Entity<Worksite>()
-                .Property(p => p.Worksite_Id)
-                .HasDefaultValueSql("nextval(\"'sq_worksite'\")");
+
 
         }  
     }
