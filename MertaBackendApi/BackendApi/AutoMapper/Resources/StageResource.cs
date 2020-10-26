@@ -13,6 +13,7 @@ namespace BackendApi.AutoMapper.Resources
     }
     public class StageGetDto
     {
+        public short Stage_Id { get; set; }
         public string Stage_Tag { get; set; }
     }
 }

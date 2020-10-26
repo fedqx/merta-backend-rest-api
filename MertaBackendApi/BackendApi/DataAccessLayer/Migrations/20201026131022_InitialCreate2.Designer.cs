@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BackendApi.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    [Migration("20201026125404_FixedSqRules")]
-    partial class FixedSqRules
+    [Migration("20201026131022_InitialCreate2")]
+    partial class InitialCreate2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,7 +32,7 @@ namespace BackendApi.Migrations
                     b.Property<short>("Campaign_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("smallint")
-                        .HasDefaultValueSql("nextval(\"'sq_campaign'\")");
+                        .HasDefaultValueSql("nextval('\"sq_campaign\"')");
 
                     b.Property<short>("CampaignWorksite_Id")
                         .HasColumnType("smallint");
@@ -63,7 +63,7 @@ namespace BackendApi.Migrations
                     b.Property<short>("Category_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("smallint")
-                        .HasDefaultValueSql("nextval(\"'sq_category'\")");
+                        .HasDefaultValueSql("nextval('\"sq_category\"')");
 
                     b.Property<string>("Category_Tag")
                         .HasColumnType("text");
@@ -78,7 +78,7 @@ namespace BackendApi.Migrations
                     b.Property<short>("FlatInfo_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("smallint")
-                        .HasDefaultValueSql("nextval(\"'sq_flatinfo'\")");
+                        .HasDefaultValueSql("nextval('\"sq_flatinfo\"')");
 
                     b.Property<short>("FlatInfoWorksite_Id")
                         .HasColumnType("smallint");
@@ -107,7 +107,7 @@ namespace BackendApi.Migrations
                     b.Property<short>("Image_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("smallint")
-                        .HasDefaultValueSql("nextval(\"'sq_image'\")");
+                        .HasDefaultValueSql("nextval('\"sq_image\"')");
 
                     b.Property<short>("ImageWorksite_Id")
                         .HasColumnType("smallint");
@@ -127,7 +127,7 @@ namespace BackendApi.Migrations
                     b.Property<short>("Stage_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("smallint")
-                        .HasDefaultValueSql("nextval(\"'sq_state'\")");
+                        .HasDefaultValueSql("nextval('\"sq_stage\"')");
 
                     b.Property<string>("Stage_Tag")
                         .HasColumnType("text");
@@ -142,7 +142,7 @@ namespace BackendApi.Migrations
                     b.Property<short>("Worksite_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("smallint")
-                        .HasDefaultValueSql("nextval(\"'sq_worksite'\")");
+                        .HasDefaultValueSql("nextval('\"sq_worksite\"')");
 
                     b.Property<short>("WorksiteCategory_Id")
                         .HasColumnType("smallint");

@@ -29,7 +29,7 @@ namespace BackendApi.Migrations
                 name: "Categories",
                 columns: table => new
                 {
-                    Category_Id = table.Column<short>(nullable: false, defaultValueSql: "nextval(\"'sq_category'\")"),
+                    Category_Id = table.Column<short>(nullable: false, defaultValueSql: "nextval('\"sq_category\"')"),
                     Category_Tag = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -41,7 +41,7 @@ namespace BackendApi.Migrations
                 name: "Stages",
                 columns: table => new
                 {
-                    Stage_Id = table.Column<short>(nullable: false, defaultValueSql: "nextval(\"'sq_state'\")"),
+                    Stage_Id = table.Column<short>(nullable: false, defaultValueSql: "nextval('\"sq_stage\"')"),
                     Stage_Tag = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -53,7 +53,7 @@ namespace BackendApi.Migrations
                 name: "Worksites",
                 columns: table => new
                 {
-                    Worksite_Id = table.Column<short>(nullable: false, defaultValueSql: "nextval(\"'sq_worksite'\")"),
+                    Worksite_Id = table.Column<short>(nullable: false, defaultValueSql: "nextval('\"sq_worksite\"')"),
                     Worksite_Tag = table.Column<string>(nullable: true),
                     Worksite_City = table.Column<string>(nullable: true),
                     Worksite_Adress = table.Column<string>(nullable: true),
@@ -83,10 +83,10 @@ namespace BackendApi.Migrations
                 name: "Campaigns",
                 columns: table => new
                 {
-                    Campaign_Id = table.Column<short>(nullable: false, defaultValueSql: "nextval(\"'sq_campaign'\")"),
+                    Campaign_Id = table.Column<short>(nullable: false, defaultValueSql: "nextval('\"sq_campaign\"')"),
                     Campaign_Tag = table.Column<string>(nullable: true),
                     Campaign_FDate = table.Column<DateTime>(nullable: false),
-                    Campaign_Stage = table.Column<bool>(nullable: false, defaultValue: true),
+                    Campaign_Stage = table.Column<bool>(nullable: false),
                     Campaign_ImageUrl = table.Column<string>(nullable: true),
                     CampaignWorksite_Id = table.Column<short>(nullable: false)
                 },
@@ -105,7 +105,7 @@ namespace BackendApi.Migrations
                 name: "FlatInfos",
                 columns: table => new
                 {
-                    FlatInfo_Id = table.Column<short>(nullable: false, defaultValueSql: "nextval(\"'sq_flatinfo'\")"),
+                    FlatInfo_Id = table.Column<short>(nullable: false, defaultValueSql: "nextval('\"sq_flatinfo\"')"),
                     FlatInfo_Apartment = table.Column<string>(nullable: true),
                     FlatInfo_Room = table.Column<string>(nullable: true),
                     FlatInfo_Size = table.Column<string>(nullable: true),
@@ -127,7 +127,7 @@ namespace BackendApi.Migrations
                 name: "Images",
                 columns: table => new
                 {
-                    Image_Id = table.Column<short>(nullable: false, defaultValueSql: "nextval(\"'sq_image'\")"),
+                    Image_Id = table.Column<short>(nullable: false, defaultValueSql: "nextval('\"sq_image\"')"),
                     Image_Name = table.Column<string>(nullable: true),
                     ImageWorksite_Id = table.Column<short>(nullable: false)
                 },

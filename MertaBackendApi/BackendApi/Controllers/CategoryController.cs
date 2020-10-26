@@ -40,7 +40,7 @@ namespace BackendApi.Controllers
             }
         }
 
-        [HttpGet("{IdData:short}")]
+        [HttpGet("{IdData}")]
         public async Task<IActionResult> GetById(short IdData) // KATEGORİ BİLGİSİNİ ID`YE GÖRE GETİR
         {
             CategoryResponse _CategoryResponse = await CategoryService.GetCategoryByIdAsync(IdData);
@@ -55,7 +55,7 @@ namespace BackendApi.Controllers
             }
         }
         
-        [HttpDelete("{IdData:Short}")]
+        [HttpDelete("{IdData}")]
         public async Task<IActionResult> DeleteById(short IdData) // KATEGORİ BİLGİSİNİ SİL
         {
             CategoryResponse _CategoryResponse = await CategoryService.DeleteCategoryAsync(IdData);
@@ -84,7 +84,8 @@ namespace BackendApi.Controllers
                 CategoryResponse _CategoryResponse = await CategoryService.CreateCategoryAsync(_Category);
                 if (_CategoryResponse.Success)
                 {
-                    return Ok(_CategoryResource);
+                    CategoryGetDto _CategoryGetDto = Mapper.Map<Category, CategoryGetDto>(_Category);
+                    return Ok(_CategoryGetDto);
                 }
                 else
                 {

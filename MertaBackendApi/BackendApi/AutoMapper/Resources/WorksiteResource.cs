@@ -12,6 +12,7 @@ namespace BackendApi.AutoMapper.Resources
 
     public class WorksiteCreateDto
     {
+
         public string Worksite_Tag { get; set; }        
         public string Worksite_City { get; set; }       
         public string Worksite_Adress { get; set; }     
@@ -22,6 +23,7 @@ namespace BackendApi.AutoMapper.Resources
     }
     public class WorksiteGetDto
     {
+        public short Worksite_Id { get; set; }
         public string Worksite_Tag { get; set; }
         public string Worksite_City { get; set; }
         public string Worksite_Adress { get; set; }

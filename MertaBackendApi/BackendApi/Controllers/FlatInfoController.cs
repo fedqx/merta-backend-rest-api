@@ -48,7 +48,7 @@ namespace BackendApi.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> CreateRange(IEnumerable<FlatInfoCreateDto> _FlatInfoCreateDtos) // YENİ DAİRE BİLGİLERİ OLUŞTUR
+        public async Task<IActionResult> CreateRange(ICollection<FlatInfoCreateDto> _FlatInfoCreateDtos) // YENİ DAİRE BİLGİLERİ OLUŞTUR
         {
             if (!ModelState.IsValid)
             {

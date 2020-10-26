@@ -53,7 +53,7 @@ namespace BackendApi.Controllers
                 return BadRequest(_WorksiteResponse.SuccessFailMessage);
             }
         }
-        [HttpDelete]
+        [HttpDelete("{IdData}")]
         public async Task<IActionResult> DeleteById(short IdData) // SAHA BİLGİSİNİ SİL
         {
             WorksiteResponse _WorksiteResponse = await WorksiteService.DeleteWorksiteAsync(IdData);
@@ -68,7 +68,7 @@ namespace BackendApi.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> Create(WorksiteCreateDto _WorksiteResource , IEnumerable<Image> _ImagesResource , IEnumerable<FlatInfo> _FlatInfosResource)// YENİ SAHA BİLGİSİ OLUŞTUR
+        public async Task<IActionResult> Create(WorksiteCreateDto _WorksiteResource)// YENİ SAHA BİLGİSİ OLUŞTUR
         {
             if (!ModelState.IsValid)
             {
@@ -77,7 +77,7 @@ namespace BackendApi.Controllers
             else
             {
                 Worksite _Worksite = Mapper.Map<WorksiteCreateDto, Worksite>(_WorksiteResource);
-                WorksiteResponse _WorksiteResponse = await WorksiteService.CreateWorksiteAsync(_Worksite, _ImagesResource, _FlatInfosResource);
+                WorksiteResponse _WorksiteResponse = await WorksiteService.CreateWorksiteAsync(_Worksite/*, _Worksite.WorksiteImages, _Worksite.WorksiteFlatInfos*/);
                 if (_WorksiteResponse.Success)
                 {
                     WorksiteGetDto _WorksiteGetDto = Mapper.Map<Worksite, WorksiteGetDto>(_Worksite);
@@ -89,7 +89,7 @@ namespace BackendApi.Controllers
                 }
             }
         }
-        [HttpGet("{IdData}/{IdData2}?")]
+        [HttpGet("{IdData}/{IdData2:short?}")]
         public async Task<IActionResult> GetByCategoryStage(short IdData, short? IdData2) // SAHA BİLGİSİNİ KATEGORİ VE/VEYA EVREYE GÖRE GETİR 
         {
             WorksiteListResponse _WorksiteListResponse = await WorksiteService.GetWorksiteByCategoryStageAsync(IdData, IdData2);

@@ -16,6 +16,7 @@ namespace BackendApi.AutoMapper.Resources
     }
     public class CategoryGetDto
     {
+        public short Category_Id { get; set; }
         public string Category_Tag { get; set; }
     }
 }

@@ -28,17 +28,23 @@ namespace BackendApi.DataAccessLayer
         {
             //modelBuilder.HasSequence<short>("sq_admin")
             //    .IncrementsBy(1);
-            modelBuilder.HasSequence<int>("sq_campaign")
+            modelBuilder.HasSequence<short>("sq_campaign")
+                .StartsAt(1)
                 .IncrementsBy(1);
-            modelBuilder.HasSequence<int>("sq_category")
+            modelBuilder.HasSequence<short>("sq_category")
+                .StartsAt(1)
                 .IncrementsBy(1);
-            modelBuilder.HasSequence<int>("sq_flatinfo")
+            modelBuilder.HasSequence<short>("sq_flatinfo")
+                .StartsAt(1)
                 .IncrementsBy(1);
-            modelBuilder.HasSequence<int>("sq_image")
+            modelBuilder.HasSequence<short>("sq_image")
+                .StartsAt(1)
                 .IncrementsBy(1);
-            modelBuilder.HasSequence<int>("sq_stage")
+            modelBuilder.HasSequence<short>("sq_stage")
+                .StartsAt(1)
                 .IncrementsBy(1);
-            modelBuilder.HasSequence<int>("sq_worksite")
+            modelBuilder.HasSequence<short>("sq_worksite")
+                .StartsAt(1)
                 .IncrementsBy(1);
 
             //modelBuilder.Entity<Admin>()
@@ -58,7 +64,7 @@ namespace BackendApi.DataAccessLayer
                 .HasDefaultValueSql("nextval('\"sq_image\"')");
             modelBuilder.Entity<Stage>()
                 .Property(p => p.Stage_Id)
-                .HasDefaultValueSql("nextval('\"sq_state\"')");
+                .HasDefaultValueSql("nextval('\"sq_stage\"')");
             modelBuilder.Entity<Worksite>()
                 .Property(p => p.Worksite_Id)
                 .HasDefaultValueSql("nextval('\"sq_worksite\"')");
@@ -103,12 +109,12 @@ namespace BackendApi.DataAccessLayer
                 .Entity<Campaign>()
                 .Property(p => p.Campaign_Stage)
                 .HasDefaultValue<bool>(true);
-                
 
 
 
 
 
-        }  
+
+        }
     }
 }

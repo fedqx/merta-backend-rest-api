@@ -125,7 +125,7 @@ namespace BackendApi.Migrations
                     b.Property<short>("Stage_Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("smallint")
-                        .HasDefaultValueSql("nextval('\"sq_state\"')");
+                        .HasDefaultValueSql("nextval('\"sq_stage\"')");
 
                     b.Property<string>("Stage_Tag")
                         .HasColumnType("text");
