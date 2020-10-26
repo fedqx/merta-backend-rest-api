@@ -57,7 +57,13 @@ namespace BackendApi
             services.AddScoped<ICampaignService, CampaignService>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<IMapper, Mapper>();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddCors(opt =>
+            opt.AddDefaultPolicy(builder =>
+            builder.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod()));
 
 
 
@@ -76,6 +82,7 @@ namespace BackendApi
                 FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "Images")),
                 RequestPath = "/Images"
             });
+            app.UseCors();
 
             app.UseHttpsRedirection();
 

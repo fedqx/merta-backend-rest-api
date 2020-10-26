@@ -1,20 +1,21 @@
 ﻿using Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Security.Cryptography.X509Certificates;
+using BackendApi;
 
 namespace BackendApi.DataAccessLayer
 {
     public class PostgresContext : DbContext
     {
-        public PostgresContext()
-        {
-
-        }
         public PostgresContext(DbContextOptions<PostgresContext> opt) : base(opt)
         {
 
         }
+        public PostgresContext()
+        {
+
+        }
+
         //public DbSet<Admin> Admins { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Worksite> Worksites { get; set; }
