@@ -7,11 +7,11 @@ namespace BackendApi.DataAccessLayer
 {
     public class PostgresContext : DbContext
     {
-        public PostgresContext(DbContextOptions<PostgresContext> opt) : base(opt)
+        public PostgresContext()
         {
 
         }
-        public PostgresContext()
+        public PostgresContext(DbContextOptions<PostgresContext> opt) : base(opt)
         {
 
         }

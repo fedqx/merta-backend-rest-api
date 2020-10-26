@@ -26,12 +26,13 @@ namespace BackendApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetList()
+        public async Task<IActionResult> GetList() // KATEGORİ BİLGİLERİNİ GETİR
         {
             CategoryListResponse _CategoryListResponse = await CategoryService.GetCategoryAllAsync();
             if (_CategoryListResponse.Success)
             {
-                return Ok(_CategoryListResponse.CLR_Category);
+                IEnumerable<CategoryGetDto> _CategoryGetDto = Mapper.Map<IEnumerable<Category>,IEnumerable<CategoryGetDto>>(_CategoryListResponse.CLR_Category);
+                return Ok(_CategoryGetDto);
             }
             else
             {
@@ -40,12 +41,13 @@ namespace BackendApi.Controllers
         }
 
         [HttpGet("{IdData:short}")]
-        public async Task<IActionResult> GetById(short IdData)
+        public async Task<IActionResult> GetById(short IdData) // KATEGORİ BİLGİSİNİ ID`YE GÖRE GETİR
         {
             CategoryResponse _CategoryResponse = await CategoryService.GetCategoryByIdAsync(IdData);
             if (_CategoryResponse.Success)
             {
-                return Ok(_CategoryResponse.CR_Category);
+                CategoryGetDto _CategoryGetDto = Mapper.Map<Category, CategoryGetDto>(_CategoryResponse.CR_Category);
+                return Ok(_CategoryGetDto);
             }
             else
             {
@@ -54,12 +56,13 @@ namespace BackendApi.Controllers
         }
         
         [HttpDelete("{IdData:Short}")]
-        public async Task<IActionResult> DeleteById(short IdData)
+        public async Task<IActionResult> DeleteById(short IdData) // KATEGORİ BİLGİSİNİ SİL
         {
             CategoryResponse _CategoryResponse = await CategoryService.DeleteCategoryAsync(IdData);
             if (_CategoryResponse.Success)
             {
-                return Ok();
+                CategoryGetDto _CategoryGetDto = Mapper.Map<Category, CategoryGetDto>(_CategoryResponse.CR_Category);
+                return Ok(_CategoryGetDto);
             }
             else
             {
@@ -68,7 +71,7 @@ namespace BackendApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CategoryCreateDto _CategoryResource)
+        public async Task<IActionResult> Create(CategoryCreateDto _CategoryResource) // YENİ KATEGORİ BİLGİSİ OLUŞTUR
         {
             if (!ModelState.IsValid)
             {
@@ -78,14 +81,14 @@ namespace BackendApi.Controllers
             {
                 Category _Category =Mapper.Map<CategoryCreateDto, Category>(_CategoryResource);
 
-                CategoryResponse CategoryResponse = await CategoryService.CreateCategoryAsync(_Category);
-                if (CategoryResponse.Success)
+                CategoryResponse _CategoryResponse = await CategoryService.CreateCategoryAsync(_Category);
+                if (_CategoryResponse.Success)
                 {
-                    return Ok(CategoryResponse.CR_Category);
+                    return Ok(_CategoryResource);
                 }
                 else
                 {
-                    return BadRequest(CategoryResponse.SuccessFailMessage);
+                    return BadRequest(_CategoryResponse.SuccessFailMessage);
                 }
             }
 
