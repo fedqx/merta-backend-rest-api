@@ -28,17 +28,17 @@ namespace BackendApi.DataAccessLayer
         {
             //modelBuilder.HasSequence<short>("sq_admin")
             //    .IncrementsBy(1);
-            modelBuilder.HasSequence<short>("sq_campaign")
+            modelBuilder.HasSequence<int>("sq_campaign")
                 .IncrementsBy(1);
-            modelBuilder.HasSequence<short>("sq_category")
+            modelBuilder.HasSequence<int>("sq_category")
                 .IncrementsBy(1);
-            modelBuilder.HasSequence<short>("sq_flatinfo")
+            modelBuilder.HasSequence<int>("sq_flatinfo")
                 .IncrementsBy(1);
-            modelBuilder.HasSequence<short>("sq_image")
+            modelBuilder.HasSequence<int>("sq_image")
                 .IncrementsBy(1);
-            modelBuilder.HasSequence<short>("sq_stage")
+            modelBuilder.HasSequence<int>("sq_stage")
                 .IncrementsBy(1);
-            modelBuilder.HasSequence<short>("sq_worksite")
+            modelBuilder.HasSequence<int>("sq_worksite")
                 .IncrementsBy(1);
 
             //modelBuilder.Entity<Admin>()
