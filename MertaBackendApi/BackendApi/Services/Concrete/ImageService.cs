@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace BackendApi.Services.Concrete
 {
@@ -22,70 +23,24 @@ namespace BackendApi.Services.Concrete
             this.UnitOfWork = _UnitOfWork;
         }
 
-        public async Task<ImageResponse> CreateImageAsync(Image ImageData)
+        public Task<ImageResponse> CreateImageAsync(Image ImageData, IFormFile ImageFile)
         {
-            try
-            {
-                await ImageRepos.CreateAsync(ImageData);
-                await UnitOfWork.CompleteAsync();
-                return new ImageResponse(ImageData);
-            }
-            catch (Exception Ex)
-            {
-                return new ImageResponse($"Resim Yüklenirken Bir Hata Oluştu : {Ex.Message}");    
-            }
+            throw new NotImplementedException();
         }
 
-        public async Task<ImageListResponse> CreateRangeImageAsync(IEnumerable<Image> ImagesData)
+        public Task<ImageListResponse> CreateRangeImageAsync(IEnumerable<Image> ImagesData, IFormFileCollection ImagesFile)
         {
-            try
-            {
-                await ImageRepos.CreateRangeAsync(ImagesData);
-                await UnitOfWork.CompleteAsync();
-                return new ImageListResponse(ImagesData);
-            }
-            catch (Exception Ex)
-            {
-                return new ImageListResponse($"Resimler Yüklenirken Bir Hata Oluştu : {Ex.Message}");
-            }
+            throw new NotImplementedException();
         }
 
-        public async Task<ImageResponse> DeleteImageAsync(short IdData)
+        public Task<ImageResponse> DeleteImageAsync(short IdData)
         {
-            try
-            {
-                var Image = await ImageRepos.GetByIdAsync(IdData);
-                if (Image == null)
-                {
-                    return new ImageResponse("Herhangi Bir Resim Bulunamadı");
-                }
-                await ImageRepos.DeleteAsync(IdData);
-                await UnitOfWork.CompleteAsync();
-                return new ImageResponse(Image);
-
-            }
-            catch (Exception Ex)
-            {
-
-                return new ImageResponse($"Resim Silmeye Çalışılırken Bir Hata Oluştu : {Ex.Message}");
-            }
+            throw new NotImplementedException();
         }
 
-        public async Task<ImageResponse> GetImageByIdAsync(short IdData)
+        public Task<ImageResponse> GetImageByIdAsync(short IdData)
         {
-            try
-            {
-                var Image = await ImageRepos.GetByIdAsync(IdData);
-                if (Image == null)
-                {
-                    return new ImageResponse("Herhangi Bir Resim Bulunamadı");
-                }
-                return new ImageResponse(Image);
-            }
-            catch (Exception Ex)
-            {
-                return new ImageResponse($"Resim Yüklenirken Bir Hata Oluştu : {Ex.Message}");
-            }
+            throw new NotImplementedException();
         }
 
         public async Task<ImageListResponse> GetImagesAllAsync(short IdData)
@@ -95,17 +50,17 @@ namespace BackendApi.Services.Concrete
                 var Images = await ImageRepos.GetAllAsync(IdData);
                 if (Images.Count() == 0)
                 {
-                    return new ImageListResponse("Projeye Ait Herhangi Bir Resim Bulnamadı"); ;
+                    return new ImageListResponse("Herhangi Bir Resim Bulunamadı");
                 }
                 return new ImageListResponse(Images);
             }
             catch (Exception Ex)
             {
-                return new ImageListResponse($"Resimler Yüklenirken Bir Hata Oluştu : {Ex.Message}");
+                return new ImageListResponse($"Resimler Aranırken Bir Hata Oluştu : {Ex.Message}");
             }
         }
 
-        public Task<ImageResponse> UpdateImageAsync(short IdData , Image ImageData)
+        public Task<ImageResponse> UpdateImageAsync(short IdData, Image ImageData, IFormFile ImageFile)
         {
             throw new NotImplementedException();
         }

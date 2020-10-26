@@ -17,7 +17,7 @@ namespace BackendApi.DataAccessLayer.Abstract
             this.Context = _Context;
         }
 
-        public async Task CreateAsync(TEntity Entity)
+        public virtual async Task CreateAsync(TEntity Entity)
         {
             await Context.Set<TEntity>().AddAsync(Entity);
         }

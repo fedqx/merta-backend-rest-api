@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BackendApi.AutoMapper.Resources
 {
-    class StageResource
+    public class StageResource
     {
     }
     public class StageCreateDto

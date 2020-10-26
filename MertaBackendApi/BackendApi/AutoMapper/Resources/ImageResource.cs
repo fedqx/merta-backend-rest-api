@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BackendApi.AutoMapper.Resources
 {
-    class ImageResource
+    public class ImageResource
     {
     }
     public class ImageCreateDto
