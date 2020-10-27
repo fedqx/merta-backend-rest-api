@@ -10,11 +10,11 @@ namespace BackendApi.Services.Abstract
 {
     public interface IImageService
     {
-        Task<ImageResponse> CreateImageAsync(Image ImageData , IFormFile ImageFile);
-        Task<ImageListResponse> CreateRangeImageAsync(IEnumerable<Image> ImagesData , IFormFileCollection ImagesFile);
+        Task<ImageResponse> CreateImageAsync(Image ImageData);
+        Task<ImageListResponse> CreateRangeImageAsync(IEnumerable<Image> ImagesData);
         Task<ImageResponse> DeleteImageAsync(short IdData);
         Task<ImageResponse> GetImageByIdAsync(short IdData);
         Task<ImageListResponse> GetImagesAllAsync(short IdData);
-        Task<ImageResponse> UpdateImageAsync(short IdData , Image ImageData , IFormFile ImageFile);
+        Task<ImageResponse> UpdateImageAsync(short IdData , Image ImageData);
     }
 }

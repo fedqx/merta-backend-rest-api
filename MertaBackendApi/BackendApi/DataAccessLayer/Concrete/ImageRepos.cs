@@ -27,10 +27,11 @@ namespace BackendApi.DataAccessLayer.Concrete
 
         public async Task CreateAsync(Image ImageData)
         {
-            ImageData.Image_Name = ImageData.Image_File.FileName + DateTime.Now.Ticks + Path.GetExtension(ImageData.Image_File.FileName);
+            ImageData.Image_Name = Path.GetFileNameWithoutExtension(ImageData.Image_File.FileName)
+                + DateTime.Now.Ticks + Path.GetExtension(ImageData.Image_File.FileName);
             var Image = ImageData.Image_File;
             string ImagePath = Path.Combine(WHEnviroment.ContentRootPath, "Images", ImageData.Image_Name);
-            using (Stream _Stream = new FileStream(ImagePath , FileMode.Create))
+            using (FileStream _Stream = new FileStream(ImagePath , FileMode.Create))
             {
                 await Image.CopyToAsync(_Stream);
             }
@@ -46,7 +47,7 @@ namespace BackendApi.DataAccessLayer.Concrete
                 
                 var Image = ImageData.Image_File;
                 string ImagePath = Path.Combine(WHEnviroment.ContentRootPath, "Images", ImageData.Image_Name);
-                using (Stream _Stream = new FileStream(ImagePath , FileMode.Create))
+                using (FileStream _Stream = new FileStream(ImagePath , FileMode.Create))
                 {
                     await Image.CopyToAsync(_Stream);
                 }

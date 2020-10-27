@@ -13,16 +13,14 @@ namespace BackendApi.AutoMapper.Resources
     public class ImageCreateDto
     {
         [Required]
-        public string Image_Name { get; set; }
-        [Required]
         public short ImageWorksite_Id { get; set; }
         [Required]
         public IFormFile Image_File { get; set; }
-
     }
     
     public class ImageGetDto
     {
+        public short Image_Id { get; set; }
         public string Image_Name { get; set; }
         public short ImageWorksite_Id { get; set; }
         public string Image_Source { get; set; }

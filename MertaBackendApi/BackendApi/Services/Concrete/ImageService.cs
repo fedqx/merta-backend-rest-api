@@ -23,24 +23,68 @@ namespace BackendApi.Services.Concrete
             this.UnitOfWork = _UnitOfWork;
         }
 
-        public Task<ImageResponse> CreateImageAsync(Image ImageData, IFormFile ImageFile)
+        public async Task<ImageResponse> CreateImageAsync(Image ImageData)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await ImageRepos.CreateAsync(ImageData);
+                await UnitOfWork.CompleteAsync();
+                return new ImageResponse(ImageData);
+            }
+            catch (Exception Ex)
+            {
+                return new ImageResponse($"Resim Yüklenirken Bir Hata Oluştu : {Ex.Message}");
+            }
         }
 
-        public Task<ImageListResponse> CreateRangeImageAsync(IEnumerable<Image> ImagesData, IFormFileCollection ImagesFile)
+        public async Task<ImageListResponse> CreateRangeImageAsync(IEnumerable<Image> ImagesData)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await ImageRepos.CreateRangeAsync(ImagesData);
+                await UnitOfWork.CompleteAsync();
+                return new ImageListResponse(ImagesData);
+            }
+            catch (Exception Ex)
+            {
+                return new ImageListResponse($"Resimler Yüklenirken Bir Hata Oluştu : {Ex.Message}");
+            }
         }
 
-        public Task<ImageResponse> DeleteImageAsync(short IdData)
+        public async Task<ImageResponse> DeleteImageAsync(short IdData)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var Image = await ImageRepos.GetByIdAsync(IdData);
+                if (Image == null)
+                {
+                    return new ImageResponse("Silmek İstediğiniz Resim Bulunamadı");
+                }
+                await ImageRepos.DeleteAsync(IdData);
+                await UnitOfWork.CompleteAsync();
+                return new ImageResponse(Image);
+            }
+            catch (Exception Ex)
+            {
+                return new ImageResponse($"Resim Silinirken Bir Hata Oluştu : {Ex.Message}");
+            }
         }
 
-        public Task<ImageResponse> GetImageByIdAsync(short IdData)
+        public async Task<ImageResponse> GetImageByIdAsync(short IdData)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var Image = await ImageRepos.GetByIdAsync(IdData);
+                if (Image == null)
+                {
+                    return new ImageResponse("Herhangi Bir Resim Bulunamadı");
+                }
+                return new ImageResponse(Image);
+            }
+            catch (Exception Ex)
+            {
+                return new ImageResponse($"Resimler Aranırken Bir Hata Oluştu : {Ex.Message}");
+            }
         }
 
         public async Task<ImageListResponse> GetImagesAllAsync(short IdData)
@@ -60,7 +104,7 @@ namespace BackendApi.Services.Concrete
             }
         }
 
-        public Task<ImageResponse> UpdateImageAsync(short IdData, Image ImageData, IFormFile ImageFile)
+        public Task<ImageResponse> UpdateImageAsync(short IdData, Image ImageData)
         {
             throw new NotImplementedException();
         }

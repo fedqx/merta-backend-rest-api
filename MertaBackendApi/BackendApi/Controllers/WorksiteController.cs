@@ -68,7 +68,7 @@ namespace BackendApi.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> Create(WorksiteCreateDto _WorksiteResource)// YENİ SAHA BİLGİSİ OLUŞTUR
+        public async Task<IActionResult> Create([FromBody]WorksiteCreateDto _WorksiteResource)// YENİ SAHA BİLGİSİ OLUŞTUR
         {
             if (!ModelState.IsValid)
             {
