@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BackendApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class StageController : ControllerBase
     {

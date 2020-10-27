@@ -13,7 +13,7 @@ using BackendApi.Extentions;
 
 namespace BackendApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class CategoryController : ControllerBase
     {

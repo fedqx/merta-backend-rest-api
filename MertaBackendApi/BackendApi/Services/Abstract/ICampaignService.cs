@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BackendApi.Services.Abstract
 {
-    interface ICampaignService
+    public interface ICampaignService
     {
         Task<CampaignResponse> GetCampaignByIdAsync(short IdData);
         Task<CampaignListResponse> GetCampaignAllAsync();

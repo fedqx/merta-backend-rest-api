@@ -19,7 +19,10 @@ namespace BackendApi.AutoMapper.Resources
         public DateTime Worksite_SDate { get; set; }    
         public DateTime Worksite_FDate { get; set; }    
         public short WorksiteStage_Id { get; set; }     
-        public short WorksiteCategory_Id { get; set; }   
+        public short WorksiteCategory_Id { get; set; }
+
+        public IEnumerable<Image> WorksiteImages { get; set; }
+        public IEnumerable<FlatInfo> WorksiteFlatInfos { get; set; }
     }
     public class WorksiteGetDto
     {

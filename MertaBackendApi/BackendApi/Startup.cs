@@ -35,8 +35,6 @@ namespace BackendApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<PostgresContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("NpgSql")));
-            services.AddControllers();
 
             services.AddScoped<ICategoryRepos, CategoryRepos>();
             services.AddScoped<ICategoryService, CategoryService>();
@@ -57,16 +55,27 @@ namespace BackendApi
             services.AddScoped<ICampaignService, CampaignService>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); // Constructor almadýðý için assembly dosyasýný içine ekledik.
 
-            services.AddCors(opt =>
-            opt.AddDefaultPolicy(builder =>
-            builder.AllowAnyOrigin()
-            .AllowAnyHeader()
-            .AllowAnyMethod()));
+            services.AddCors(opt => 
+            {
+                opt.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                });
 
+                //opt.AddPolicy("mertainsaat",
+                //    (builder => 
+                //    { 
+                //        builder.WithOrigins("https://www.mertainsaat.com")
+                //        .AllowAnyOrigin()
+                //        .AllowAnyMethod(); 
+                //    })
+                //    );
+            });
 
-
+            services.AddControllers();
+            services.AddDbContext<PostgresContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("NpgSql")));
   
         }
 
@@ -82,6 +91,7 @@ namespace BackendApi
                 FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "Images")),
                 RequestPath = "/Images"
             });
+            //app.UseCors("mertainsaat");
             app.UseCors();
 
             app.UseHttpsRedirection();

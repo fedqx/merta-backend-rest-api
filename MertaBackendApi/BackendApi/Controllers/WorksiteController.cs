@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BackendApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class WorksiteController : ControllerBase
     {
@@ -77,7 +77,7 @@ namespace BackendApi.Controllers
             else
             {
                 Worksite _Worksite = Mapper.Map<WorksiteCreateDto, Worksite>(_WorksiteResource);
-                WorksiteResponse _WorksiteResponse = await WorksiteService.CreateWorksiteAsync(_Worksite/*, _Worksite.WorksiteImages, _Worksite.WorksiteFlatInfos*/);
+                WorksiteResponse _WorksiteResponse = await WorksiteService.CreateWorksiteAsync(_Worksite , _WorksiteResource.WorksiteImages,_WorksiteResource.WorksiteFlatInfos);
                 if (_WorksiteResponse.Success)
                 {
                     WorksiteGetDto _WorksiteGetDto = Mapper.Map<Worksite, WorksiteGetDto>(_Worksite);
@@ -89,7 +89,23 @@ namespace BackendApi.Controllers
                 }
             }
         }
-        [HttpGet("{IdData}/{IdData2:short?}")]
+
+        [HttpGet("{IdData}")]
+        public async Task<IActionResult> GetByCategory(short IdData, short? IdData2) // SAHA BİLGİSİNİ KATEGORİYE GÖRE GETİR 
+        {
+            WorksiteListResponse _WorksiteListResponse = await WorksiteService.GetWorksiteByCategoryStageAsync(IdData, IdData2);
+            if (_WorksiteListResponse.Success)
+            {
+                IEnumerable<WorksiteGetDto> _WorksiteGetDto = Mapper.Map<IEnumerable<Worksite>, IEnumerable<WorksiteGetDto>>(_WorksiteListResponse.WLR_Worksite);
+                return Ok(_WorksiteGetDto);
+            }
+            else
+            {
+                return BadRequest(_WorksiteListResponse.SuccessFailMessage);
+            }
+        }
+
+        [HttpGet("{IdData}/{IdData2}")]
         public async Task<IActionResult> GetByCategoryStage(short IdData, short? IdData2) // SAHA BİLGİSİNİ KATEGORİ VE/VEYA EVREYE GÖRE GETİR 
         {
             WorksiteListResponse _WorksiteListResponse = await WorksiteService.GetWorksiteByCategoryStageAsync(IdData, IdData2);

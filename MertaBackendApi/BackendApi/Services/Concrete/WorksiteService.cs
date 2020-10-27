@@ -26,13 +26,13 @@ namespace BackendApi.Services.Concrete
             this.UnitOfWork = _UnitOfWork;
         }
 
-        public async Task<WorksiteResponse> CreateWorksiteAsync(Worksite WorksiteData/*, IEnumerable<Image> ImagesData, IEnumerable<FlatInfo> FlatInfosData*/)
+        public async Task<WorksiteResponse> CreateWorksiteAsync(Worksite WorksiteData, IEnumerable<Image> ImagesData, IEnumerable<FlatInfo> FlatInfosData)
         {
             try
             {
                 await WorksiteRepos.CreateAsync(WorksiteData);
-                //await ImageRepos.CreateRangeAsync(ImagesData);
-                //await FlatInfoRepos.CreateRangeAsync(FlatInfosData);
+                await ImageRepos.CreateRangeAsync(ImagesData);
+                await FlatInfoRepos.CreateRangeAsync(FlatInfosData);
                 await UnitOfWork.CompleteAsync();
                 return new WorksiteResponse(WorksiteData);
             }
